@@ -10,39 +10,16 @@ Windows 要运行还需要 [Aria2c.exe](https://github.com/aria2/aria2/releases)
 [Linkle](https://chrome.google.com/webstore/detail/linkle/okcgleaeeoddghoiabpapmnkckncbjba?hl=zh-CN)  
 [Aria2c Integration](https://chrome.google.com/webstore/detail/aria2c-integration/cnkefpcjiolhnmhfpjbjpidgncnajlmf?hl=zh-CN)  
 [Camtd](https://chrome.google.com/webstore/detail/camtd-aria2-download-mana/lcfobgbcebdnnppciffalfndpdfeence/related?utm_source=chrome-ntp-icon)（使用这个扩展不需要 webui-aria2 或 AriaNg ）  
+[Aria2 for Chrome](https://chrome.google.com/webstore/detail/aria2-for-chrome/mpkodccbngfoacfalldjimigbofkhgjn)（使用这个扩展不需要 webui-aria2 或 AriaNg ）  
 
 ## Windows 的启动方式和 Firefox FlashGot 调用  
 
 ### Windows  
-Windows CMD 启动双击 start.bat ，后台运行双击 HideRun.vbs  
+Windows CMD 启动双击 start.bat ，后台运行双击 HideRun.vbs ，关闭双击 stop.bat ，重启双击 restart.bat
 
-若要自启动又需要管理员权限使用任务计划程序  
+如需开机自启动，将 HideRun.vbs 创建快捷方式，将快捷方式放至Startup文件夹
 
-1. 打开任务计划程序：控制面板→管理工具→任务计划程序  
-2. 创建任务  
-3. 常规  
- 3.1. 更改用户或组，使用 SYSTEM 账户  
- 3.2. 如果使用 falloc 的文件预分配方式，又有  
-
- >[WARN] Gaining privilege SeManageVolumePrivilege failed.  
-
- 的出现，则使用最高权限运行打上勾  
-
-4. 触发器  
- 4.1. 新建  
- 4.2. 开始任务选择登录时  
- 4.3. 可以按需选择延迟任务时间  
- 4.4. 已启用务必确认勾选  
-5. 操作  
- 5.1. 新建  
- 5.2. 程序或脚本选择 `aria2c.exe`  
- 5.3. 添加参数 `--conf=aria2.conf`  
- 5.4. 起始于 `PATH` （aria2c.exe所在目录）  
-6. 条件  
- 6.1. 勾全部取消，包括黑掉的（ Windows 蜜汁 BUG ，黑掉的有时候也会生效）  
-7. 设置  
- 7.1. 仅勾选允许按需运行任务  
- 7.2. 如果此任务已经运行，以下规则适用：请勿启动新实例
+> Startup 路径：%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup
 
 ### Firefox 57 以前 FlashGot 的调用方式  
 需要 [Python2](https://www.python.org/downloads/windows/) 环境  
