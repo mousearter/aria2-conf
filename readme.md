@@ -15,7 +15,7 @@ Windows 要运行还需要 [Aria2c.exe](https://github.com/aria2/aria2/releases)
 ## Windows 的启动方式和 Firefox FlashGot 调用  
 
 ### Windows  
-Windows CMD 启动双击 start.bat ，后台运行双击 HideRun.vbs ，关闭双击 stop.bat ，重启双击 restart.bat
+Windows CMD 启动双击 start.bat ，后台运行双击 HideRun.vbs ，关闭双击 stop.bat
 
 如需开机自启动，将 HideRun.vbs 创建快捷方式，将快捷方式放至Startup文件夹
 
